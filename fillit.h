@@ -3,10 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   fillit.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
+<<<<<<< HEAD
 /*   By: groussel <groussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/07 17:03:12 by groussel          #+#    #+#             */
 /*   Updated: 2018/04/16 18:33:58 by groussel         ###   ########.fr       */
+=======
+/*   By: oespion <oespion@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/04/17 16:43:04 by oespion           #+#    #+#             */
+/*   Updated: 2018/04/17 22:22:24 by oespion          ###   ########.fr       */
+>>>>>>> v2
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +25,7 @@
 # include <unistd.h>	// read, write, close
 # include <stdio.h>		// printf
 
+<<<<<<< HEAD
 typedef struct		s_shapes
 {								//  0    1    2    3    4    5    6
 	int				shape;		// 'I', 'J', 'L', 'O', 'S', 'T', 'Z'
@@ -198,4 +206,28 @@ int		ft_trypiece(t_shapes *shapes, char **map, int p_nbr, int x, int y);
 void	ft_mod_tab(char **map, t_shapes *shapes, int p_nbr);
 void	ft_print(char **map);
 
+=======
+typedef struct	s_shapes
+{
+	int			**tab;
+	int			set;
+	int			letter;
+}				t_shapes;
+
+typedef struct	s_struct
+{
+	int			x;
+	int			y;
+}				t_struct;
+
+int				start(t_shapes *shapes);
+void			ft_solve(char **map, t_shapes *shapes, int nb, t_struct *xy);
+void			ft_mod_tab(char **map, t_shapes *shapes, int p_nbr);
+char			**ft_bigger_pg(char **map);
+char			**ft_playground(int p_nbr);
+int				ft_sqrt(int nb);
+void			ft_free_tab(char **tab);
+void			ft_print(char **map);
+int				ft_is_valid(char **map, t_shapes *shapes, int nb, t_struct xy);
+>>>>>>> v2
 #endif
