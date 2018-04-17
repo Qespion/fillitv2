@@ -6,7 +6,7 @@
 /*   By: groussel <groussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/17 17:25:32 by groussel          #+#    #+#             */
-/*   Updated: 2018/04/17 17:25:35 by groussel         ###   ########.fr       */
+/*   Updated: 2018/04/17 20:29:23 by groussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int		main(int ac, char **av)
 		ft_strerror(shapes, square, fd, 2);
 	if (!checkfile(shapes, &square, fd))		// error if one shape in file is invalid
 		ft_strerror(shapes, square, fd, 2);
-	start(shapes);
+	//start(shapes);
 	free(shapes);								// free the struct
 	free(square);
 	close(fd);
