@@ -1,40 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sqrt.c                                          :+:      :+:    :+:   */
+/*   ft_puto.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oespion <oespion@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/13 18:43:27 by oespion           #+#    #+#             */
-/*   Updated: 2018/04/19 13:46:09 by oespion          ###   ########.fr       */
+/*   Created: 2018/04/12 10:02:03 by oespion           #+#    #+#             */
+/*   Updated: 2018/04/19 13:40:44 by oespion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int		ft_sqrt(int nb)
+int	ft_puto(int x, int y, char **map)
 {
-	int	r;
+	int	is_valid;
 
-	r = 2;
-	while (r <= nb / 2)
-	{
-		if (r * r == nb)
-			return (r);
-		r++;
-	}
+	is_valid = ft_is_valid(map, x, y);
+	if (is_valid == 1)
+		is_valid = ft_is_valid(map, x + 1, y);
+	if (is_valid == 1)
+		is_valid = ft_is_valid(map, x, y + 1);
+	if (is_valid == 1)
+		is_valid = ft_is_valid(map, x + 1, y + 1);
+	if (is_valid == 1)
+		return (1);
 	return (0);
-}
-
-void	ft_free_tab(char **tab)
-{
-	int	r;
-
-	r = 0;
-	while (tab[r])
-	{
-		free(tab[r]);
-		r++;
-	}
-	free(tab);
 }

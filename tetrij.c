@@ -6,40 +6,33 @@
 /*   By: groussel <groussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/08 22:25:40 by groussel          #+#    #+#             */
-/*   Updated: 2018/04/15 19:28:54 by groussel         ###   ########.fr       */
+/*   Updated: 2018/04/19 13:41:30 by groussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-/*
-** TODO:	[X] Check north
-**			[X] Check east
-**			[X] Check south
-**			[X] Check west
-**
-** FIXME:	[X] Segv
-*/
 
 #include "fillit.h"
 #include "libft.h"
 
-int		checkJ(char **tab)
+int		checkj(char **tab)
 {
-	if (checkJN(tab))
+	if (checkjn(tab))
 		return (0);
-	if (checkJE(tab))
+	if (checkje(tab))
 		return (1);
-	if (checkJS(tab))
+	if (checkjs(tab))
 		return (2);
-	if (checkJW(tab))
+	if (checkjw(tab))
 		return (3);
 	return (-1);
 }
 
-/*  #
+/*
+**  #
 **  #
 ** ##
 */
-int		checkJN(char **tab)
+
+int		checkjn(char **tab)
 {
 	int		x;
 	int		y;
@@ -58,10 +51,12 @@ int		checkJN(char **tab)
 	return (0);
 }
 
-/* #
+/*
+** #
 ** ###
 */
-int		checkJE(char **tab)
+
+int		checkje(char **tab)
 {
 	int		x;
 	int		y;
@@ -80,11 +75,13 @@ int		checkJE(char **tab)
 	return (0);
 }
 
-/* ##
+/*
+** ##
 ** #
 ** #
 */
-int		checkJS(char **tab)
+
+int		checkjs(char **tab)
 {
 	int		x;
 	int		y;
@@ -103,10 +100,12 @@ int		checkJS(char **tab)
 	return (0);
 }
 
-/* ###
+/*
+** ###
 **   #
 */
-int		checkJW(char **tab)
+
+int		checkjw(char **tab)
 {
 	int		x;
 	int		y;

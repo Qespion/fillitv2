@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: oespion <oespion@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/17 17:07:40 by oespion           #+#    #+#             */
-/*   Updated: 2018/04/17 22:16:13 by oespion          ###   ########.fr       */
+/*   Created: 2018/04/09 03:52:17 by groussel          #+#    #+#             */
+/*   Updated: 2018/04/19 13:37:05 by oespion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,46 +71,52 @@ char	**ft_playground(int p_nbr)
 	return (tab);
 }
 
-int	ft_is_valid(char **map, t_shapes *shapes, int nb, t_struct xy)
+int		ft_is_valid(char **map, int x, int y)
 {
 	int	r;
-	int	i;
 
-	i = 0;
 	r = ft_strlen(map[0]);
-	while (i < 4)
-	{
-		if (shapes[nb].tab[i][0] < 0 && shapes[nb].tab[i][1] < 0
-			&& shapes[nb].tab[i][0] >= r && shapes[nb].tab[i][0] >= r)
-			return (0);
-		i++;
-	}
-	i = 0;
-	while (i < 4)
-	{
-		if (map[shapes[nb].tab[i][0]][shapes[nb].tab[i][1]] != '.')
-			return (0);
-		i++;
-	}
-	return (1);
+	if (x >= r || y >= r || x < 0 || y < 0)
+		return (0);
+	if (map[y][x] == '.')
+		return (1);
+	return (0);
+}
+
+int		ft_trypiece(t_shapes *shapes, char **map, int p_nbr, t_pos *xy)
+{
+	int valid;
+
+	valid = 0;
+	if (shapes[p_nbr].shape == 0)
+		valid = ft_puti(xy, map, shapes, p_nbr);
+	else if (shapes[p_nbr].shape == 1)
+		valid = ft_putj(xy, map, shapes, p_nbr);
+	else if (shapes[p_nbr].shape == 2)
+		valid = ft_putl(xy, map, shapes, p_nbr);
+	else if (shapes[p_nbr].shape == 3)
+		valid = ft_puto(xy->x, xy->y, map);
+	else if (shapes[p_nbr].shape == 4)
+		valid = ft_puts(xy, map, shapes, p_nbr);
+	else if (shapes[p_nbr].shape == 5)
+		valid = ft_putt(xy, map, shapes, p_nbr);
+	else if (shapes[p_nbr].shape == 6)
+		valid = ft_putz(xy, map, shapes, p_nbr);
+	return (valid);
 }
 
 int		start(t_shapes *shapes)
 {
 	char	**map;
 	int		p_nbr;
-	int		r;
-	int		i;
-	t_struct	*xy;
+	t_pos	*xy;
 
-	if (!(xy = (t_struct*)malloc(sizeof(xy))))
+	if (!(xy = (t_pos*)malloc(sizeof(xy))))
 		return (0);
 	xy->x = 0;
 	xy->y = 0;
-	r = 0;
-	i = 0;
 	p_nbr = 0;
-	while (shapes[p_nbr].letter)
+	while (shapes[p_nbr].shape != -1)
 		p_nbr++;
 	map = ft_playground(p_nbr);
 	ft_solve(map, shapes, 0, xy);

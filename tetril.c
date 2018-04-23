@@ -6,40 +6,33 @@
 /*   By: groussel <groussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/08 22:56:53 by groussel          #+#    #+#             */
-/*   Updated: 2018/04/15 19:29:04 by groussel         ###   ########.fr       */
+/*   Updated: 2018/04/19 13:39:39 by groussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-/*
-** TODO:	[X] Check north
-**			[X] Check east
-**			[X] Check south
-**			[X] Check west
-**
-** FIXME:	[X] Segv
-*/
 
 #include "fillit.h"
 #include "libft.h"
 
-int		checkL(char **tab)
+int		checkl(char **tab)
 {
-	if (checkLN(tab))
+	if (checkln(tab))
 		return (0);
-	if (checkLE(tab))
+	if (checkle(tab))
 		return (1);
-	if (checkLS(tab))
+	if (checkls(tab))
 		return (2);
-	if (checkLW(tab))
+	if (checklw(tab))
 		return (3);
 	return (-1);
 }
 
-/* #
+/*
+** #
 ** #
 ** ##
 */
-int		checkLN(char **tab)
+
+int		checkln(char **tab)
 {
 	int		x;
 	int		y;
@@ -58,10 +51,12 @@ int		checkLN(char **tab)
 	return (0);
 }
 
-/* ###
+/*
+** ###
 ** #
 */
-int		checkLE(char **tab)
+
+int		checkle(char **tab)
 {
 	int		x;
 	int		y;
@@ -80,11 +75,13 @@ int		checkLE(char **tab)
 	return (0);
 }
 
-/* ##
+/*
+** ##
 **  #
 ** 	#
 */
-int		checkLS(char **tab)
+
+int		checkls(char **tab)
 {
 	int		x;
 	int		y;
@@ -103,10 +100,12 @@ int		checkLS(char **tab)
 	return (0);
 }
 
-/*   #
+/*
+**   #
 ** ###
 */
-int		checkLW(char **tab)
+
+int		checklw(char **tab)
 {
 	int		x;
 	int		y;

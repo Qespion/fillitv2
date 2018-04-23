@@ -1,40 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sqrt.c                                          :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oespion <oespion@student.42.fr>            +#+  +:+       +#+        */
+/*   By: groussel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/13 18:43:27 by oespion           #+#    #+#             */
-/*   Updated: 2018/04/19 13:46:09 by oespion          ###   ########.fr       */
+/*   Created: 2018/04/04 11:47:42 by groussel          #+#    #+#             */
+/*   Updated: 2018/04/04 11:49:11 by groussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "libft.h"
 
-int		ft_sqrt(int nb)
+char	*ft_strncpy(char *dest, const char *src, size_t n)
 {
-	int	r;
+	unsigned int	i;
 
-	r = 2;
-	while (r <= nb / 2)
-	{
-		if (r * r == nb)
-			return (r);
-		r++;
-	}
-	return (0);
-}
-
-void	ft_free_tab(char **tab)
-{
-	int	r;
-
-	r = 0;
-	while (tab[r])
-	{
-		free(tab[r]);
-		r++;
-	}
-	free(tab);
+	i = -1;
+	while (src[++i] && i < n)
+		dest[i] = src[i];
+	while (i < n)
+		dest[i++] = '\0';
+	return (dest);
 }

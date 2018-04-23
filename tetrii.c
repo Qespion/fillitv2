@@ -6,32 +6,27 @@
 /*   By: groussel <groussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/07 20:10:44 by groussel          #+#    #+#             */
-/*   Updated: 2018/04/15 19:28:40 by groussel         ###   ########.fr       */
+/*   Updated: 2018/04/19 13:42:00 by groussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-/*
-** TODO:	[X] Check horizontaly
-**			[X] Check verticaly
-**
-** FIXME:	[X] Segv
-*/
 
 #include "fillit.h"
 #include "libft.h"
 
-int		checkI(char **tab)
+int		checki(char **tab)
 {
-	if (checkIN(tab))
+	if (checkin(tab))
 		return (0);
-	if (checkIE(tab))
+	if (checkie(tab))
 		return (1);
 	return (-1);
 }
 
-/* ####
+/*
+** ####
 */
-int		checkIN(char **tab)
+
+int		checkin(char **tab)
 {
 	int		y;
 
@@ -40,17 +35,19 @@ int		checkIN(char **tab)
 	{
 		if (tab[y][0] == '#' && tab[y][1] == '#' && tab[y][2] == '#'
 				&& tab[y][3] == '#')
-				return (1);
+			return (1);
 	}
 	return (0);
 }
 
-/* #
+/*
+** #
 ** #
 ** #
 ** #
 */
-int		checkIE(char **tab)
+
+int		checkie(char **tab)
 {
 	int		x;
 
@@ -59,7 +56,7 @@ int		checkIE(char **tab)
 	{
 		if (tab[0][x] == '#' && tab[1][x] == '#' && tab[2][x] == '#'
 				&& tab[3][x] == '#')
-				return (1);
+			return (1);
 	}
 	return (0);
 }

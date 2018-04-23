@@ -6,34 +6,29 @@
 /*   By: groussel <groussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/08 23:22:10 by groussel          #+#    #+#             */
-/*   Updated: 2018/04/15 19:29:22 by groussel         ###   ########.fr       */
+/*   Updated: 2018/04/19 13:41:07 by groussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-/*
-** TODO:	[X] Check north
-**			[X] Check east
-**
-** FIXME:	[X] Segv
-*/
 
 #include "fillit.h"
 #include "libft.h"
 
-int		checkS(char **tab)
+int		checks(char **tab)
 {
-	if (checkSN(tab))
+	if (checksn(tab))
 		return (0);
-	if (checkSE(tab))
+	if (checkse(tab))
 		return (1);
 	return (-1);
 }
 
-/* #
+/*
+** #
 ** ##
 **  #
 */
-int		checkSN(char **tab)
+
+int		checksn(char **tab)
 {
 	int		x;
 	int		y;
@@ -52,10 +47,12 @@ int		checkSN(char **tab)
 	return (0);
 }
 
-/*  ##
+/*
+**  ##
 ** ##
 */
-int		checkSE(char **tab)
+
+int		checkse(char **tab)
 {
 	int		x;
 	int		y;
